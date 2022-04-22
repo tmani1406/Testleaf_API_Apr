@@ -1,0 +1,150 @@
+{
+	"info": {
+		"_postman_id": "b631d20a-08ce-41fe-94bf-d45081e6f242",
+		"name": "Testleaf_JiraAssignment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get all the issues records",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "d79FxbHACWPZJo8YVnMT3A52",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "RestAPIJira@gmail.com",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://restapijira.atlassian.net/rest/api/2/search?jql=project=AP",
+					"protocol": "https",
+					"host": [
+						"restapijira",
+						"atlassian",
+						"net"
+					],
+					"path": [
+						"rest",
+						"api",
+						"2",
+						"search"
+					],
+					"query": [
+						{
+							"key": "jql",
+							"value": "project=AP"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all the record within 24 hours",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "d79FxbHACWPZJo8YVnMT3A52",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "RestAPIJira@gmail.com",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://restapijira.atlassian.net/rest/api/2/search?jql=project=AP%26created>-24h",
+					"protocol": "https",
+					"host": [
+						"restapijira",
+						"atlassian",
+						"net"
+					],
+					"path": [
+						"rest",
+						"api",
+						"2",
+						"search"
+					],
+					"query": [
+						{
+							"key": "jql",
+							"value": "project=AP%26created>-24h"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create a issue",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "d79FxbHACWPZJo8YVnMT3A52",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "RestAPIJira@gmail.com",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"fields\": {\r\n\t\t\"project\": {\r\n\t\t\t\"key\": \"AP\"\r\n\t\t},\r\n\t\t\"summary\": \"create issue in RA project - Mani\",\r\n\t\t\"description\": \"Creating of an issue using project keys and issue type names using the REST API - Mani\",\r\n\t\t\"issuetype\": {\r\n\t\t\t\"name\": \"Bug\"\r\n\t\t}\r\n\t}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://restapijira.atlassian.net/rest/api/2/issue?jql=project=AP",
+					"protocol": "https",
+					"host": [
+						"restapijira",
+						"atlassian",
+						"net"
+					],
+					"path": [
+						"rest",
+						"api",
+						"2",
+						"issue"
+					],
+					"query": [
+						{
+							"key": "jql",
+							"value": "project=AP"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
